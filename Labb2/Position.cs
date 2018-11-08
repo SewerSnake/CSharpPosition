@@ -27,7 +27,8 @@ namespace Labb2
             }
         }
 
-        public int Y {
+        public int Y 
+        {
             get 
             {
                 return y;
@@ -49,6 +50,11 @@ namespace Labb2
         {
             X = x;
             Y = y;
+        }
+
+        public bool Equals(Position p)
+        {
+            return (p.X == X) && (p.Y == Y);
         }
     }
 }

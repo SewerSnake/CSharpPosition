@@ -6,9 +6,10 @@ namespace Labb2
     {
         static void Main(string[] args)
         {
-            Position position1 = new Position(-5, 9);
-            Console.WriteLine(position1.X);
-            Console.WriteLine(position1.Y);
+            Position position1 = new Position(1, 9);
+            Position position2 = new Position(2, 7);
+
+            Console.WriteLine(position1.Equals(position2));
         }
     }
 }
