@@ -61,5 +61,17 @@ namespace Labb2
         {
             return new Position(X, Y);
         }
+
+        // OVERLOADING OPERATORS
+        public static double operator %(Position p1, Position p2)
+        {
+            double distance =
+                Math.Sqrt(
+                    Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2)
+                );
+            // Om vi vill avrunda till 2 decimaler
+            // return Math.Round(distance, 2);
+            return distance;
+        }
     }
 }
