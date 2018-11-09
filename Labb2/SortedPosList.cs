@@ -5,10 +5,15 @@ namespace Labb2
 {
     public class SortedPosList
     {
-        List<Position> positionsList = new List<Position>();
+        List<Position> sortedPosList = new List<Position>();
 
         public SortedPosList()
         {
+        }
+
+        public int Count()
+        {
+            return sortedPosList.Count;
         }
     }
 }
