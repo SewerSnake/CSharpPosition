@@ -73,5 +73,27 @@ namespace Labb2
             // return Math.Round(distance, 2);
             return distance;
         }
+
+        public static bool operator >(Position p1, Position p2)
+        {
+            throw new NotImplementedException();
+            /*if (p1.Length() == p2.Length())
+            {
+                return p1.X > p2.X;
+            }
+
+            return p1.Length() > p2.Length();*/
+        }
+
+        public static bool operator <(Position p1, Position p2)
+        {
+            throw new NotImplementedException();
+            /*if (p1.Length() == p2.Length())
+            {
+                return p2.X > p1.X;
+            }
+
+            return p2.Length() > p1.Length();*/
+        }
     }
 }
