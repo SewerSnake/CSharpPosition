@@ -56,5 +56,10 @@ namespace Labb2
         {
             return (p.X == X) && (p.Y == Y);
         }
+
+        public Position Clone()
+        {
+            return new Position(X, Y);
+        }
     }
 }
