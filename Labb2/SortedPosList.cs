@@ -15,5 +15,10 @@ namespace Labb2
         {
             return sortedPosList.Count;
         }
+
+        public override string ToString()
+        {
+            return String.Join(",", sortedPosList);
+        }
     }
 }

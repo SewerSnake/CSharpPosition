@@ -4,25 +4,25 @@ namespace Labb2
 {
     public class Position
     {
-        private int x;
+        private int _x;
 
-        private int y;
+        private int _y;
 
         public int X 
         { 
             get 
             {
-                return x;
+                return _x;
             }
             set 
             {
                 if (value >= 0)
                 {
-                    x = value;
+                    _x = value;
                 } 
                 else 
                 {
-                    x = 0;
+                    _x = 0;
                 }
             }
         }
@@ -31,17 +31,17 @@ namespace Labb2
         {
             get 
             {
-                return y;
+                return _y;
             }
             set
             {
                 if (value >= 0)
                 {
-                    y = value;
+                    _y = value;
                 } 
                 else 
                 {
-                    y = 0;
+                    _y = 0;
                 }
             }
         }
