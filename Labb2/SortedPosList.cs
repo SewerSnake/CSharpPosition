@@ -20,5 +20,18 @@ namespace Labb2
         {
             return String.Join(",", sortedPosList);
         }
+
+        public bool Remove(Position position)
+        {
+            foreach (Position posInList in sortedPosList)
+            {
+                if (position.Equals(posInList))
+                {
+                    sortedPosList.Remove(posInList);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
