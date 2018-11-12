@@ -62,7 +62,6 @@ namespace Labb2
             return new Position(X, Y);
         }
 
-
         public double Length()
         {
             double distanceFromOrigo = Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
@@ -83,7 +82,11 @@ namespace Labb2
 
         public static bool operator >(Position p1, Position p2)
         {
+<<<<<<< Updated upstream
 
+=======
+            //throw new NotImplementedException();
+>>>>>>> Stashed changes
             if (p1.Length() == p2.Length())
             {
                 return p1.X > p2.X;
@@ -94,6 +97,10 @@ namespace Labb2
 
         public static bool operator <(Position p1, Position p2)
         {
+<<<<<<< Updated upstream
+=======
+            //throw new NotImplementedException();
+>>>>>>> Stashed changes
             if (p1.Length() == p2.Length())
             {
                 return p2.X > p1.X;
@@ -121,6 +128,11 @@ namespace Labb2
         public override string ToString()
         {
             return $"({X},{Y})";
+        }
+
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
         }
 
     }

@@ -21,15 +21,13 @@ namespace Labb2
             return String.Join(",", sortedPosList);
         }
 
-        // Denna kod kan säkert modifieras. 
-        // OBS Har inte testkört eftersom att > operatorn ej ännu är tillgänglig. :)
         public void Add(Position pos)
         {
             sortedPosList.Add(pos);
 
-            for (int i = 0; i < sortedPosList.Count; i++)
+            for (int i = 0; i < Count(); i++)
             {
-                for (int j = i + 1; j < sortedPosList.Count; j++)
+                for (int j = i + 1; j < Count(); j++)
                 {
                     if (sortedPosList[i] > sortedPosList[j])
                     {
@@ -53,5 +51,14 @@ namespace Labb2
             }
             return false;
         }
+
+        public Position this[int index]
+        {
+            // GET - Returns Position at given index
+            get { return sortedPosList[index]; }
+            // SET - No setter. Should this throw an exception??
+        }
+
+
     }
 }
