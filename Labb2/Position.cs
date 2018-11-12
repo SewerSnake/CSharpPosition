@@ -102,5 +102,22 @@ namespace Labb2
 
             return p2.Length() > p1.Length();*/
         }
+
+        public static Position operator +(Position p1, Position p2)
+        {
+            int sumOfPositionsX = p1.X + p2.X;
+            int sumOfPositionsY = p1.Y + p2.Y;
+
+            return new Position(sumOfPositionsX, sumOfPositionsY);
+        }
+
+        public static Position operator -(Position p1, Position p2)
+        {
+            int differenceOfPositionsX = p1.X - p2.X;
+            int differenceOfPositionsY = p1.Y - p2.Y;
+
+            return new Position(differenceOfPositionsX, differenceOfPositionsX);
+        }
+
     }
 }
