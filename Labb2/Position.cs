@@ -83,24 +83,23 @@ namespace Labb2
 
         public static bool operator >(Position p1, Position p2)
         {
-            throw new NotImplementedException();
-            /*if (p1.Length() == p2.Length())
+
+            if (p1.Length() == p2.Length())
             {
                 return p1.X > p2.X;
             }
 
-            return p1.Length() > p2.Length();*/
+            return p1.Length() > p2.Length();
         }
 
         public static bool operator <(Position p1, Position p2)
         {
-            throw new NotImplementedException();
-            /*if (p1.Length() == p2.Length())
+            if (p1.Length() == p2.Length())
             {
                 return p2.X > p1.X;
             }
 
-            return p2.Length() > p1.Length();*/
+            return p2.Length() > p1.Length();
         }
 
         public static Position operator +(Position p1, Position p2)
@@ -113,10 +112,15 @@ namespace Labb2
 
         public static Position operator -(Position p1, Position p2)
         {
-            int differenceOfPositionsX = p1.X - p2.X;
-            int differenceOfPositionsY = p1.Y - p2.Y;
+            int differenceOfPositionsX = Math.Abs(p1.X - p2.X);
+            int differenceOfPositionsY = Math.Abs(p1.Y - p2.Y);
 
             return new Position(differenceOfPositionsX, differenceOfPositionsY);
+        }
+
+        public override string ToString()
+        {
+            return $"({X},{Y})";
         }
 
     }
