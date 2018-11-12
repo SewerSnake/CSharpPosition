@@ -116,7 +116,7 @@ namespace Labb2
             int differenceOfPositionsX = p1.X - p2.X;
             int differenceOfPositionsY = p1.Y - p2.Y;
 
-            return new Position(differenceOfPositionsX, differenceOfPositionsX);
+            return new Position(differenceOfPositionsX, differenceOfPositionsY);
         }
 
     }
