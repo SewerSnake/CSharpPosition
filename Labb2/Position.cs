@@ -62,6 +62,13 @@ namespace Labb2
             return new Position(X, Y);
         }
 
+
+        public double Length()
+        {
+            double distanceFromOrigo = Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
+            return distanceFromOrigo;
+        }
+
         // OVERLOADING OPERATORS
         public static double operator %(Position p1, Position p2)
         {
