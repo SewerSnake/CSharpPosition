@@ -56,7 +56,17 @@ namespace Labb2
         {
             // GET - Returns Position at given index
             get { return sortedPosList[index]; }
-            // SET - No setter. Should this throw an exception??
+        }
+
+        public SortedPosList Clone()
+        {
+            SortedPosList clonedList = new SortedPosList();
+
+            foreach (Position pos in sortedPosList)
+            {
+                clonedList.Add(pos.Clone());
+            }
+            return clonedList;
         }
 
 

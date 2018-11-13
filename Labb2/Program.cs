@@ -26,10 +26,18 @@ namespace Labb2
             list1.Remove(new Position(2, 6));
             Console.WriteLine(list1 + "\n");
 
-            list2.Add(new Position(3, 7));
-            list2.Add(new Position(1, 2));
-            list2.Add(new Position(3, 6));
-            list2.Add(new Position(2, 3));
+            Console.WriteLine("TESTING CLONE");
+            SortedPosList c1 = list1.Clone();
+            Console.WriteLine("List one:\n" + list1);
+            Console.WriteLine("Cloned list:\n" + c1);
+            list1.Remove(new Position(2, 3));
+            Console.WriteLine("List one after one position removed:\n" + list1);
+            Console.WriteLine("Cloned list:\n" + c1);
+
+            //list2.Add(new Position(3, 7));
+            //list2.Add(new Position(1, 2));
+            //list2.Add(new Position(3, 6));
+            //list2.Add(new Position(2, 3));
             //Console.WriteLine((list2 + list1) + "\n");
 
             SortedPosList circleList = new SortedPosList();
