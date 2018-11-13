@@ -69,6 +69,23 @@ namespace Labb2
             return clonedList;
         }
 
+        // Returns a list containing all positions within the given circle
+        // centerPos - center of the circle
+        public SortedPosList CircleContent(Position centerPos, double radius)
+        {
+            SortedPosList posWithinCircle = new SortedPosList();
+
+            foreach (Position pos in sortedPosList)
+            {
+                if (Math.Pow(pos.X - centerPos.X, 2) + Math.Pow(pos.Y - centerPos.Y, 2) < Math.Pow(radius, 2))
+                {
+                    posWithinCircle.Add(pos);
+                    Console.WriteLine(pos);
+                }
+            }
+            return posWithinCircle;
+        }
+
 
     }
 }

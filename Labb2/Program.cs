@@ -34,6 +34,15 @@ namespace Labb2
             Console.WriteLine("List one after one position removed:\n" + list1);
             Console.WriteLine("Cloned list:\n" + c1);
 
+            /*
+            Console.WriteLine("TEST: VALUES W/IN CIRCLE");
+            SortedPosList list3 = new SortedPosList();
+            list3.Add(new Position(1, 1));
+            list3.Add(new Position(2, 2));
+            list3.Add(new Position(3, 3));
+            list3.CircleContent(new Position(5, 5), 4);
+            */
+
             //list2.Add(new Position(3, 7));
             //list2.Add(new Position(1, 2));
             //list2.Add(new Position(3, 6));
