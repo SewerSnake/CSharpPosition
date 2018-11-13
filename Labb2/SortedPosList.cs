@@ -52,6 +52,28 @@ namespace Labb2
             return false;
         }
 
+        // OVERLOADING OPERATORS
+
+        // Returns a new sorted list containing all positions of the two provided lists 
+        // sp1 - the first sorted list of Positions
+        // sp2 - the second sorted list of Positions
+        public static SortedPosList operator +(SortedPosList sp1, SortedPosList sp2)
+        {
+            SortedPosList combinedList = new SortedPosList();
+
+            for (int i = 0; i < sp1.Count(); i++) 
+            {
+                combinedList.Add(sp1[i]);
+            }
+
+            for (int i = 0; i < sp2.Count(); i++)
+            {
+                combinedList.Add(sp2[i]);
+            }
+
+            return combinedList;
+        }
+
         public Position this[int index]
         {
             // GET - Returns Position at given index
@@ -80,7 +102,7 @@ namespace Labb2
                 if (Math.Pow(pos.X - centerPos.X, 2) + Math.Pow(pos.Y - centerPos.Y, 2) < Math.Pow(radius, 2))
                 {
                     posWithinCircle.Add(pos);
-                    Console.WriteLine(pos);
+                    //Console.WriteLine(pos);
                 }
             }
             return posWithinCircle;
