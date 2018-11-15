@@ -67,6 +67,8 @@ namespace Labb2
             circleList.Add(new Position(2, 2));
             circleList.Add(new Position(3, 3));
             Console.WriteLine(circleList.CircleContent(new Position(5, 5), 4) + "\n");
+
+            SortedPosList fileTest = new SortedPosList("positions.txt");
         }
     }
 }
