@@ -17,6 +17,9 @@ namespace Labb2
             hasSynced = false;
         }
 
+        // Checks if the desired file exists in the given directory.
+        // If it doesn't, a text file is created there.
+        // filePath - the path of the file
         public SortedPosList(string filePath)
         {
             hasSynced = true;
@@ -30,21 +33,25 @@ namespace Labb2
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
                 {
                     Console.WriteLine("File created!");
-                };
+                }
             }
         }
 
-
+        // Returns the amount of positions in the list
         public int Count()
         {
             return sortedPosList.Count;
         }
 
+        // Returns a string containing all positions, separated with commas
         public override string ToString()
         {
             return String.Join(",", sortedPosList);
         }
 
+        // Adds a Position object to the list. Ensures that the 
+        // positions in the list are sorted by Length, i.e. distance from origo.
+        // Saves the list to the text file.
         public void Add(Position pos)
         {
             sortedPosList.Add(pos);
@@ -64,6 +71,8 @@ namespace Labb2
             Save();
         }
 
+        // Deletes any Position from the list that 
+        // matches the provided Position.
         public bool Remove(Position position)
         {
             foreach (Position posInList in sortedPosList)
@@ -99,12 +108,38 @@ namespace Labb2
             return combinedList;
         }
 
+        // Returns a new sorted list containing all positions that aren't shared 
+        // between the two provided lists
+        // sp1 - the first sorted list of Positions
+        // sp2 - the second sorted list of Positions
+        public static SortedPosList operator -(SortedPosList list1, SortedPosList list2)
+        {
+            SortedPosList comboList = list1 + list2;
+            SortedPosList result = list1.Clone();
+
+            for (int i = 0; i + 1 < comboList.Count(); i++)
+            {
+                if (comboList[i].Equals(comboList[i + 1]))
+                {
+                    //Console.WriteLine($"Found same values: {comboList[i]} and {comboList[i + 1]}");
+                    result.Remove(comboList[i]);
+                }
+                else
+                {
+                    // Console.WriteLine($"Not The same: {comboList[i]} and {comboList[i + 1]}");
+                }
+            }
+
+            return result;
+        }
+
         public Position this[int index]
         {
             // GET - Returns Position at given index
             get { return sortedPosList[index]; }
         }
 
+        // Returns a deep clone of all positions in the list
         public SortedPosList Clone()
         {
             SortedPosList clonedList = new SortedPosList();
@@ -133,32 +168,16 @@ namespace Labb2
             return posWithinCircle;
         }
 
-        public static SortedPosList operator -(SortedPosList list1, SortedPosList list2)
-        {
-            SortedPosList comboList = list1 + list2;
-            SortedPosList result = list1.Clone();
+        // FILE RELATED METHODS
 
-            for (int i = 0; i+1 < comboList.Count(); i++)
-            {
-                if (comboList[i].Equals(comboList [i+1]))
-                {
-                    //Console.WriteLine($"Found same values: {comboList[i]} and {comboList[i + 1]}");
-                    result.Remove(comboList[i]);
-                }
-                else {
-                    // Console.WriteLine($"Not The same: {comboList[i]} and {comboList[i + 1]}");
-                }
-            }
-
-            return result;
-        }
-
-        // File related methods
         private void Load()
         {
 
         }
 
+
+        // Saves the list of Positions to the file "positions.txt".
+        // Each Position is wrote on a new line in the file.
         public void Save()
         {
             Console.WriteLine($"Saving to file.");
@@ -170,6 +189,8 @@ namespace Labb2
                 }
         }
 
+        // Returns a Position by parsing a string
+        // posString - The string containing the Position
         public Position ConvertStringToPosition(string posString)
         {
             posString.Replace("(", string.Empty);
