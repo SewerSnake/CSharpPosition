@@ -108,6 +108,30 @@ namespace Labb2
             return posWithinCircle;
         }
 
+        public static SortedPosList operator -(SortedPosList list1, SortedPosList list2)
+        {
+            SortedPosList comboList = list1 + list2;
+            // Console.WriteLine("List1: " + list1);
+            // Console.WriteLine("\nList2: " + list2);
+            SortedPosList result = list1.Clone();
+            // Console.WriteLine("CombinedList: " + comboList);
+
+            for (int i = 0; i+1 < comboList.Count(); i++)
+            {
+                if (comboList[i].Equals(comboList [i+1]))
+                {
+                    Console.WriteLine($"Found same values: {comboList[i]} and {comboList[i + 1]}");
+                    result.Remove(comboList[i]);
+                }
+                else {
+                    // Console.WriteLine($"Not The same: {comboList[i]} and {comboList[i + 1]}");
+                }
+            }
+            Console.WriteLine($"Final result: {result}");
+
+            return result;
+        }
+
 
     }
 }

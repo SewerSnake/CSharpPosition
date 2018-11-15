@@ -41,6 +41,21 @@ namespace Labb2
             list3.Add(new Position(3, 3));
             list3.CircleContent(new Position(5, 5), 4);
 
+            Console.WriteLine("SUBTRACT LISTS");
+            SortedPosList test1 = new SortedPosList();
+            test1.Add(new Position(3, 7));
+            test1.Add(new Position(1, 4));
+            test1.Add(new Position(2, 6));
+            test1.Add(new Position(2, 3));
+
+            SortedPosList test2 = new SortedPosList();
+            test2.Add(new Position(3, 7));
+            test2.Add(new Position(1, 2));
+            test2.Add(new Position(3, 6));
+            test2.Add(new Position(2, 3));
+
+            SortedPosList test3 = test2 - test1;
+
             list2.Add(new Position(3, 7));
             list2.Add(new Position(1, 2));
             list2.Add(new Position(3, 6));
