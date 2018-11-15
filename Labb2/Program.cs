@@ -41,7 +41,15 @@ namespace Labb2
             list3.Add(new Position(3, 3));
             list3.CircleContent(new Position(5, 5), 4);
 
-            Console.WriteLine("SUBTRACT LISTS");
+
+            // VG 1 - Overload -
+            // Test: L1 - L2 (Test should show that equal values are removed)
+            // L1 = { (3, 7), (1, 4), (2, 6), (2, 3) }
+            // L2 = { (3, 7), (1, 2), (3, 6), (2, 3) }
+            // Expected results:
+            // L1 - L2 = { (1, 4), (2, 6) }
+            // L2 - L1 = { (1, 2), (3, 6) }
+            Console.WriteLine("\nL1 - L2");
             SortedPosList test1 = new SortedPosList();
             test1.Add(new Position(3, 7));
             test1.Add(new Position(1, 4));
@@ -54,7 +62,13 @@ namespace Labb2
             test2.Add(new Position(3, 6));
             test2.Add(new Position(2, 3));
 
-            SortedPosList test3 = test2 - test1;
+            Console.WriteLine($"List1: {test1}");
+            Console.WriteLine($"List2: {test2}");
+            Console.WriteLine($"Final result L1-L2: {test1 - test2}");
+            Console.WriteLine($"Final result L2-L1: {test2 - test1}");
+            Console.WriteLine();
+
+            // TEST: 
 
             list2.Add(new Position(3, 7));
             list2.Add(new Position(1, 2));
