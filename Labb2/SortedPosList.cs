@@ -21,9 +21,13 @@ namespace Labb2
 
         }
 
-        private void Save()
+        public void Save()
         {
-
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"external_list.txt"))
+            foreach (Position pos in sortedPosList)
+            {
+                    file.WriteLine($"({pos.X}, {pos.Y})");
+            }
         }
 
         public int Count()
