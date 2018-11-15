@@ -10,6 +10,7 @@ namespace Labb2
     {
         static void Main(string[] args)
         {
+            /*
             Console.WriteLine(new Position(2, 4) + new Position(1, 2) + "\n");
             Console.WriteLine(new Position(2, 4) - new Position(1, 2) + "\n");
             Console.WriteLine(new Position(1, 2) - new Position(3, 6) + "\n");
@@ -40,8 +41,9 @@ namespace Labb2
             list3.Add(new Position(2, 2));
             list3.Add(new Position(3, 3));
             list3.CircleContent(new Position(5, 5), 4);
+            */
 
-
+            /*
             // VG 1 - Overload -
             // Test: L1 - L2 (Test should show that equal values are removed)
             // L1 = { (3, 7), (1, 4), (2, 6), (2, 3) }
@@ -67,9 +69,32 @@ namespace Labb2
             Console.WriteLine($"Final result L1-L2: {test1 - test2}");
             Console.WriteLine($"Final result L2-L1: {test2 - test1}");
             Console.WriteLine();
+            */
 
-            // TEST: 
 
+
+            // Test: 
+            // Write to external text file when list updated.
+
+            Console.WriteLine("Create new file");
+            SortedPosList fileTest = new SortedPosList("positions.txt");
+
+            Console.WriteLine("Create new list");
+            SortedPosList test1 = new SortedPosList();
+            test1.Add(new Position(3, 7));
+            test1.Add(new Position(1, 4));
+            test1.Add(new Position(2, 6));
+            test1.Add(new Position(2, 3));
+
+            Console.WriteLine("Add value (6,6)");
+            test1.Add(new Position(6, 6));
+
+            Console.WriteLine("Add value (1,1)");
+            test1.Add(new Position(1, 1));
+
+
+
+            /*
             list2.Add(new Position(3, 7));
             list2.Add(new Position(1, 2));
             list2.Add(new Position(3, 6));
@@ -83,6 +108,7 @@ namespace Labb2
             Console.WriteLine(circleList.CircleContent(new Position(5, 5), 4) + "\n");
 
             SortedPosList fileTest = new SortedPosList("positions.txt");
+            */
         }
     }
 }
