@@ -7,28 +7,33 @@ namespace Labb2
     {
         List<Position> sortedPosList = new List<Position>();
 
+        private bool hasSynced;
+
+        private const string FILEPATH = "./positions.txt";
+
+
         public SortedPosList()
         {
+            hasSynced = false;
         }
 
         public SortedPosList(string filePath)
         {
+            hasSynced = true;
 
-        }
-
-        private void Load()
-        {
-
-        }
-
-        public void Save()
-        {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"external_list.txt"))
-            foreach (Position pos in sortedPosList)
+            try
             {
-                    file.WriteLine($"({pos.X}, {pos.Y})");
+                System.IO.File.ReadAllLines(filePath);
+            }
+            catch
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
+                {
+                    Console.WriteLine("File created!");
+                };
             }
         }
+
 
         public int Count()
         {
@@ -151,6 +156,30 @@ namespace Labb2
             return result;
         }
 
+        // File related methods
+        private void Load()
+        {
+
+        }
+
+        public void Save()
+        {
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"positions.txt"))
+                foreach (Position pos in sortedPosList)
+                {
+                    file.WriteLine($"({pos.X}, {pos.Y})");
+                }
+        }
+
+        public Position ConvertStringToPosition(string posString)
+        {
+            posString.Replace("(", string.Empty);
+            posString.Replace(")", string.Empty);
+
+            string[] twoCoords = posString.Split(",");
+
+            return new Position(int.Parse(twoCoords[0]), int.Parse(twoCoords[1]));
+        }
 
     }
 }
