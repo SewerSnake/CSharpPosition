@@ -11,6 +11,21 @@ namespace Labb2
         {
         }
 
+        public SortedPosList(string filePath)
+        {
+
+        }
+
+        private void Load()
+        {
+
+        }
+
+        private void Save()
+        {
+
+        }
+
         public int Count()
         {
             return sortedPosList.Count;
