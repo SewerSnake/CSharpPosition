@@ -11,6 +11,7 @@ namespace Labb2
         static void Main(string[] args)
         {
             /*
+            G functionality test
             Console.WriteLine(new Position(2, 4) + new Position(1, 2) + "\n");
             Console.WriteLine(new Position(2, 4) - new Position(1, 2) + "\n");
             Console.WriteLine(new Position(1, 2) - new Position(3, 6) + "\n");
@@ -73,10 +74,8 @@ namespace Labb2
 
 
 
-            // Test: 
-            // Write to external text file when list updated.
-
-            Console.WriteLine("Create new file");
+            // VG 2 - Write to external text file when list updated -
+            /*Console.WriteLine("Create new file");
             SortedPosList fileTest = new SortedPosList("positions.txt");
 
             Console.WriteLine("Create new list");
@@ -90,9 +89,13 @@ namespace Labb2
             test1.Add(new Position(6, 6));
 
             Console.WriteLine("Add value (1,1)");
-            test1.Add(new Position(1, 1));
+            test1.Add(new Position(1, 1));*/
 
-
+            // VG 3 - Load from external text file -
+            SortedPosList loadTest = new SortedPosList("positions.txt");
+            //loadTest.Add(new Position(1, 1));
+            //loadTest.Add(new Position(7, 10));
+            Console.WriteLine($"Positions loaded: {loadTest}");
 
             /*
             list2.Add(new Position(3, 7));

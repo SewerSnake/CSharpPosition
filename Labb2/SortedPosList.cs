@@ -22,19 +22,21 @@ namespace Labb2
         // filePath - the path of the file
         public SortedPosList(string filePath)
         {
-            hasSynced = true;
-
             try
             {
                 System.IO.File.ReadAllLines(filePath);
+                hasSynced = true;
             }
             catch
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
                 {
                     Console.WriteLine("File created!");
+                    hasSynced = false;
                 }
             }
+
+            Load();
         }
 
         // Returns the amount of positions in the list
@@ -170,22 +172,33 @@ namespace Labb2
 
         // FILE RELATED METHODS
 
+        // Loads all Positions from the file "positions.txt" into the list.
+        // This only occurs if the file exists.
         private void Load()
         {
+            if (hasSynced) 
+            {
+                string[] allLinesInFile = System.IO.File.ReadAllLines(FILEPATH);
 
+                for (int i = 0; i < allLinesInFile.Length; i++)
+                {
+                    Position parsedPos = ConvertStringToPosition(allLinesInFile[i]);
+                    sortedPosList.Add(parsedPos);
+                }
+            }
         }
 
 
         // Saves the list of Positions to the file "positions.txt".
         // Each Position is wrote on a new line in the file.
-        public void Save()
+        private void Save()
         {
             Console.WriteLine($"Saving to file.");
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"positions.txt"))
                 foreach (Position pos in sortedPosList)
                 {
-                    file.WriteLine($"({pos.X}, {pos.Y})");
+                    file.WriteLine($"({pos.X},{pos.Y})");
                 }
         }
 
@@ -193,12 +206,18 @@ namespace Labb2
         // posString - The string containing the Position
         public Position ConvertStringToPosition(string posString)
         {
-            posString.Replace("(", string.Empty);
-            posString.Replace(")", string.Empty);
+            //Console.WriteLine(posString);
+            string withoutLeftParanthesis = posString.Replace("(", string.Empty);
+            string withoutLeftAndRightParanthesis = withoutLeftParanthesis.Replace(")", string.Empty);
 
-            string[] twoCoords = posString.Split(",");
+            string[] twoCoords = withoutLeftAndRightParanthesis.Split(",");
+            Console.WriteLine($"X coordinate: {twoCoords[0]} Y coordinate: {twoCoords[1]}");
 
-            return new Position(int.Parse(twoCoords[0]), int.Parse(twoCoords[1]));
+            int xCoord = int.Parse(twoCoords[0]);
+
+            int yCoord = int.Parse(twoCoords[1]);
+
+            return new Position(xCoord, yCoord);
         }
 
     }
