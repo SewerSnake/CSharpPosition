@@ -93,8 +93,9 @@ namespace Labb2
 
             // VG 3 - Load from external text file -
             SortedPosList loadTest = new SortedPosList("positions.txt");
-            //loadTest.Add(new Position(1, 1));
             //loadTest.Add(new Position(7, 10));
+            //loadTest.Add(new Position(1, 6));
+            //loadTest.Add(new Position(1, 1));
             Console.WriteLine($"Positions loaded: {loadTest}");
 
             /*

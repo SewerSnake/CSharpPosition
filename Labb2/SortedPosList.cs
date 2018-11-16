@@ -7,14 +7,14 @@ namespace Labb2
     {
         List<Position> sortedPosList = new List<Position>();
 
-        private bool hasSynced;
+        //private bool hasSynced;
 
         private const string FILEPATH = "./positions.txt";
 
 
         public SortedPosList()
         {
-            hasSynced = false;
+
         }
 
         // Checks if the desired file exists in the given directory.
@@ -24,19 +24,15 @@ namespace Labb2
         {
             try
             {
-                System.IO.File.ReadAllLines(filePath);
-                hasSynced = true;
+                Load(filePath);
             }
             catch
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
                 {
                     Console.WriteLine("File created!");
-                    hasSynced = false;
                 }
             }
-
-            Load();
         }
 
         // Returns the amount of positions in the list
@@ -174,17 +170,15 @@ namespace Labb2
 
         // Loads all Positions from the file "positions.txt" into the list.
         // This only occurs if the file exists.
-        private void Load()
+        // filePath - the path of the file to load
+        private void Load(string filePath)
         {
-            if (hasSynced) 
-            {
-                string[] allLinesInFile = System.IO.File.ReadAllLines(FILEPATH);
+            string[] allLinesInFile = System.IO.File.ReadAllLines(filePath);
 
-                for (int i = 0; i < allLinesInFile.Length; i++)
-                {
-                    Position parsedPos = ConvertStringToPosition(allLinesInFile[i]);
-                    sortedPosList.Add(parsedPos);
-                }
+            for (int i = 0; i < allLinesInFile.Length; i++)
+            {
+                Position parsedPos = ConvertStringToPosition(allLinesInFile[i]);
+                sortedPosList.Add(parsedPos);
             }
         }
 
@@ -211,7 +205,7 @@ namespace Labb2
             string withoutLeftAndRightParanthesis = withoutLeftParanthesis.Replace(")", string.Empty);
 
             string[] twoCoords = withoutLeftAndRightParanthesis.Split(",");
-            Console.WriteLine($"X coordinate: {twoCoords[0]} Y coordinate: {twoCoords[1]}");
+            //Console.WriteLine($"X coordinate: {twoCoords[0]} Y coordinate: {twoCoords[1]}");
 
             int xCoord = int.Parse(twoCoords[0]);
 
