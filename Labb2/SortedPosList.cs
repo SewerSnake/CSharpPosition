@@ -7,14 +7,14 @@ namespace Labb2
     {
         List<Position> sortedPosList = new List<Position>();
 
-        //private bool hasSynced;
+        private bool shouldSave;
 
         private const string FILEPATH = "./positions.txt";
 
 
         public SortedPosList()
         {
-
+            shouldSave = false;
         }
 
         // Checks if the desired file exists in the given directory.
@@ -22,6 +22,8 @@ namespace Labb2
         // filePath - the path of the file
         public SortedPosList(string filePath)
         {
+            shouldSave = true;
+
             try
             {
                 Load(filePath);
@@ -66,7 +68,10 @@ namespace Labb2
                     }
                 }
             }
-            Save();
+            if (shouldSave)
+            {
+                Save();
+            }
         }
 
         // Deletes any Position from the list that 
@@ -187,7 +192,7 @@ namespace Labb2
         // Each Position is wrote on a new line in the file.
         private void Save()
         {
-            Console.WriteLine($"Saving to file.");
+            //Console.WriteLine($"Saving to file.");
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"positions.txt"))
                 foreach (Position pos in sortedPosList)
