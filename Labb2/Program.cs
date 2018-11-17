@@ -11,23 +11,33 @@ namespace Labb2
         static void Main(string[] args)
         {
             //GFunctionalityTest();
+
+            //Console.WriteLine("TESTING OVERLOADED OPERATORS FOR POSITIONS");
+            //Console.WriteLine(new Position(2, 4) + new Position(1, 2) + "\n");
+            //Console.WriteLine(new Position(2, 4) - new Position(1, 2) + "\n");
+            //Console.WriteLine(new Position(1, 2) - new Position(3, 6) + "\n");
+            //Console.WriteLine(new Position(3, 5) % new Position(1, 3) + "\n");
+
+            //Console.WriteLine("TESTING CREATION AND REMOVAL OF POSITIONS IN LIST");
+            //SortedPosList list1 = new SortedPosList();
+            //SortedPosList list2 = new SortedPosList();
+            //list1.Add(new Position(3, 7));
+            //list1.Add(new Position(1, 4));
+            //list1.Add(new Position(2, 6));
+            //list1.Add(new Position(2, 3));
+            //Console.WriteLine(list1 + "\n");
+            //Console.WriteLine(list1[2]);
+            //list1.Remove(new Position(2, 6));
+            //Console.WriteLine(list1 + "\n");
+            
+            //Console.WriteLine("TESTING ADDING CONTENTS OF TWO LISTS");
+            //list2.Add(new Position(3, 7));
+            //list2.Add(new Position(1, 2));
+            //list2.Add(new Position(3, 6));
+            //list2.Add(new Position(2, 3));
+            //Console.WriteLine((list2 + list1) + "\n");
+
             /*
-            Console.WriteLine(new Position(2, 4) + new Position(1, 2) + "\n");
-            Console.WriteLine(new Position(2, 4) - new Position(1, 2) + "\n");
-            Console.WriteLine(new Position(1, 2) - new Position(3, 6) + "\n");
-            Console.WriteLine(new Position(3, 5) % new Position(1, 3) + "\n");
-
-            SortedPosList list1 = new SortedPosList();
-            SortedPosList list2 = new SortedPosList();
-            list1.Add(new Position(3, 7));
-            list1.Add(new Position(1, 4));
-            list1.Add(new Position(2, 6));
-            list1.Add(new Position(2, 3));
-            Console.WriteLine(list1 + "\n");
-            Console.WriteLine(list1[2]);
-            list1.Remove(new Position(2, 6));
-            Console.WriteLine(list1 + "\n");
-
             Console.WriteLine("TESTING CLONE");
             SortedPosList c1 = list1.Clone();
             Console.WriteLine("List one:\n" + list1);
@@ -72,8 +82,6 @@ namespace Labb2
             Console.WriteLine();
             */
 
-
-
             // VG 2 - Write to external text file when list updated -
             /*Console.WriteLine("Create new file");
             SortedPosList fileTest = new SortedPosList("positions.txt");
@@ -97,22 +105,6 @@ namespace Labb2
             //loadTest.Add(new Position(1, 6));
             //loadTest.Add(new Position(1, 1));
             //Console.WriteLine($"Positions loaded: {loadTest}");
-
-            /*
-            list2.Add(new Position(3, 7));
-            list2.Add(new Position(1, 2));
-            list2.Add(new Position(3, 6));
-            list2.Add(new Position(2, 3));
-            Console.WriteLine((list2 + list1) + "\n");
-
-            SortedPosList circleList = new SortedPosList();
-            circleList.Add(new Position(1, 1));
-            circleList.Add(new Position(2, 2));
-            circleList.Add(new Position(3, 3));
-            Console.WriteLine(circleList.CircleContent(new Position(5, 5), 4) + "\n");
-
-            SortedPosList fileTest = new SortedPosList("positions.txt");
-            */
         }
 
         // The result of this test is the same as
