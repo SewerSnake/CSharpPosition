@@ -86,17 +86,17 @@ namespace Labb2
             test1.Add(new Position(2, 3));
 
             Console.WriteLine("Add value (6,6)");
-            test1.Add(new Position(6, 6));
+            fileTest.Add(new Position(6, 6));
 
             Console.WriteLine("Add value (1,1)");
-            test1.Add(new Position(1, 1));*/
+            fileTest.Add(new Position(1, 1));*/
 
             // VG 3 - Load from external text file -
-            SortedPosList loadTest = new SortedPosList("positions.txt");
+            //SortedPosList loadTest = new SortedPosList("positions.txt");
             //loadTest.Add(new Position(7, 10));
             //loadTest.Add(new Position(1, 6));
             //loadTest.Add(new Position(1, 1));
-            Console.WriteLine($"Positions loaded: {loadTest}");
+            //Console.WriteLine($"Positions loaded: {loadTest}");
 
             /*
             list2.Add(new Position(3, 7));
